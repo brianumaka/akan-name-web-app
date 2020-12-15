@@ -13,7 +13,22 @@
     <h1>Akan Names Web Calculator</h1>
     <h2>About</h2>
     <p>Akan name website is a web application <br> that takes a user's birthday and calculates the day of the week they were born, <br>then depending on their gender outputs their Akan names. <br>Akan names are derived from Ghanian culture.</p>
+
   </div>
-  
+    <form>
+      Year<br/>
+      <input type="number" name="Year" placeholder="Enter the Year" id="year"/><br/>
+      Month<br />
+      <input type="number" name="Month" placeholder="Enter the Month" id="month"/><br/>
+      Date<br />
+      <input type="number" name="Date" placeholder="Enter the date" id="date"/><br/>
+      <select name="gender" id="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+
+    <!-- <input type="button" id="calculate the birthday" value="Calculate The Birthday" /> -->
+    <button type="submit" onclick="getAkanName()">Calculate The Birthday</button>
+  </form>
 </body>
 </html>
