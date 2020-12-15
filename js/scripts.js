@@ -1,26 +1,45 @@
-var ghanianMaleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame",];
-var ghanianFemaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama",];
+var submission = function () {
+  var daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var ghanianMaleNames = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame",];
+  var ghanianFemaleNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama",];
 
-function ghanianNames() {
-    var gender = document.getElementById("gender").nodeValue;
-    var ydate = document.getElementById("ydate").nodeValue;
-
-    var CC = parseInt(ydate.substr(0, 2));
-    var YY = parseInt(ydate.substr(1, 3));
-    var MM = parseInt(ydate.substr(5, 6));
-    var DD = parseInt(ydate.substr(8, 9));
-    var myYear = parseInt(ydate.substr(0, 5));
-    var d = parseInt((CC / 4 - 2 * CC - 1 + (5 * YY) / 4 + (26 * (MM + 1)) / 10 + DD) % 7);
-
-    var date = new Date(myYear, MM - 1, DD);
-    if (date > new Date()) {
-        alert("invalid date; you have entered a future date")
-    } else {
-        if (gender === "male") {
-            alert("your ghanian akan name is" + ghanianMaleNames[d])
-        } else if (gender === "female") {
-            alert("your ghanian akan name is " + ghanianFemaleNames[d])
-        } else 
-          alert("invalid gender. please choose your gender")
+  var month = parseInt(document.getElementById("month").value);
+  var year = parseInt(document.getElementById("year").value);
+  var day = parseInt(document.getElementById("day").value);
+  var name = (document.getElementById("name").value);
+  var date0fbirth = new Date(year + "/" + month + "/" + day);
+  var results = date0fbirth.getDay();
+  var output = document.getElementById("output");
+  var male = document.getElementById("male")
+  var female = document.getElementById("female")
+    
+    if (month === "") {
+        document.getElementById('output').innerHTML = "<div class=\"alert alert-danger\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">x</button><strong>Oh snap!</strong> You Didn't Submit a Valid Date!</div>";
+    $('#output').addClass("animated shake");
     }
+    
+    if (year < 0) {
+        output.style.background = "red"
+        output.style.color = "white"
+        output.innerHTML = "Hey! " + name + " please enter a valid year! "
+    }
+    else if ((month < 1) || (month > 31)) {
+        output.style.background = "red"
+        output.style.color = "white"
+        output.innerHTML = "Hey! " + name + " please enter a valid month! "
+    }
+    else if (day < 0 || day > 31) {
+        output.style.background = "red"
+        output.style.color = "white"
+        output.innerHTML = "Hey! " + name + " please enter a valid day! "
+    } 
+    if (male.checked && year > 0 && month > 0 && month < 12 && day > 0 && day < 32) {
+        output.style.background = "sandybrown"
+        output.innerHTML = "Hey! " + name + " you were born on a " + daysOfTheWeek[results] + " and your Akan name is " + ghanianMaleNames[results];
+    }
+    else if (female.checked && year > 0 && month > 0 && month < 12 && day > 0 && day < 32) {
+        output.style.background = "sandybrown"
+        output.style.background = "red"
+        output.innerHTML = "Hey! " + name + " you were born on a " + daysOfTheWeek[results] + " and your Akan name is " + ghanianFemaleNames[results];
+      }
 }
