@@ -1,47 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <title>THE AKAN WEBSITE</title>
 </head>
+
 <body>
-  <div class=container>
-    <h1>Akan Name Web Calculator</h1>
-    <h2>About</h2>
-    <p>Akan name website calculator, is a web application <br> that takes a user's birthday and calculates the day of the week they were born, <br>then depending on their gender outputs their Akan names. <br>the names are derived from <em>Ghanian</em>  culture.</p>
-    <form onsubmit="return aggregateMyFunctions()">
-      Day<br/>
-      <label for="inputday4" id="dob">Day</label>
-      <input class="form-control" id="day" placeholder="12" value="">
-      <div id="day_error" class="val_error"></div>
-      Month<br />
-      <label for="inputmonth4" id="mmonth">Month</label>
-      <input class="form-control" id="month" placeholder="09" value="">
-      <div id="month_error" class="val_error"></div>
-      Year<br />
-      <label for="inputyear4" id="myear">Year</label>
-      <input class="form-control" id="year" placeholder="2019" value="">
-      <div id="year_error" class="val_error"></div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="male">
-        <label class="form-check-label" for="gender">Male</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="female">
-        <label class="form-check-label" for="gender">Female</label>
-      </div>
-      <input type="number" name="Date" placeholder="Enter the date" id="date"/><br/>
-      <select name="gender" id="gender">
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select>
-     <button type="submit" onclick="getAkanName()">Search Akan Name</button>
-  </form>
-</div>
-<script src="js/scripts.js"></script>
+    <div class="jumbotron">
+        <strong>
+            <h1>The<span>Akan</span>
+                <span-1>Website</span-1>
+            </h1>
+        </strong>
+
+        <p>The Akan website is an application which basically takes a user's birthday and
+            calculates the day of the week they were born and then outputs their Akan name
+            depending on their gender.Akan names are derived from the Ghanian culture whereby
+            children are given their first names as a 'day name' corresponding to the day in the
+            week they were born.
+        </p>
+        <h3>Here are Ghanian day names;</h3>
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>MALE</h2>
+                <ul>
+                    <li>Sunday:Kwasi</li>
+                    <li>Monday:Kwadwo</li>
+                    <li>Tuesday:Kwabena</li>
+                    <li>Wednesday:Kwaku</li>
+                    <li>Thursday:Yaw</li>
+                    <li>Friday:Kofi</li>
+                    <li>Saturday:Kwame</li>
+                </ul>
+
+            </div>
+            <div class="col-lg-6">
+                <h2>FEMALE</h2>
+                <ul>
+                    <li>Sunday:Akosua</li>
+                    <li>Monday:Adwoa</li>
+                    <li>Tuesday:Abenaa</li>
+                    <li>Wednesday:Akua</li>
+                    <li>Thursday:Yaa</li>
+                    <li>Friday:Afua</li>
+                    <li>Saturday:Ama</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="instruction">
+            <h4><strong>Find your Akan name by filling the form below!!</strong></h4>
+        </div>
+
+        <div class="jumbotron1">
+            <div class="col-md-5  akan-form">
+                <h5> Enter Your Birthday date:</h5>
+                <div class="add-stylist-form">
+                    <form>
+                        <div class="form-group mb15">
+                            <label class="label">Birthday</label>
+                            <div class="input-group mb15">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <input type="text" placeholder="mm/dd/yyyy" id="myBirthDate" class="form-control"
+                                    autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="form-group mb15">
+                            <label class="label">Gender</label>
+                            <div class="rdio rdio-default fs11">
+                                <input type="radio" name="gender" id="male" value="Male">
+                                <label for="male">Male</label>
+                            </div>
+                            <div class="rdio rdio-default fs11">
+                                <input type="radio" name="gender" value="Female" id="female">
+                                <label for="female">&nbsp;&nbsp;Female</label>
+                            </div>
+                        </div>
+                        <button type="submit" onclick="getAkanName(); return false;" class="btn btn-primary btn-xs"><i
+                                class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Get Akan Name</button>
+                        <button type="reset" onclick="clearAkanMessage(); return false;"
+                            class="btn btn-default btn-xs"><i class="fa fa-times"
+                                aria-hidden="true"></i>&nbsp;&nbsp;Cancel</button>
+                    </form>
+                </div>
+                <hr>
+                <div class="your-akan-name">
+                    <p id="message" class="output"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
+
 </html>
